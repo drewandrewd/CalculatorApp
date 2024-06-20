@@ -63,6 +63,9 @@ public class CalculatorApp {
             a = Integer.parseInt(lines[0]);
             b = Integer.parseInt(lines[2]);
             sign = lines[1];
+            if (a > 10 || b > 10) {
+                throw new CalculateException("Операнды должны быть в пределах от 1 до 10");
+            }
         } else {
             a = converterToInt(lines[0]);
             b = converterToInt(lines[2]);
@@ -101,8 +104,14 @@ public class CalculatorApp {
         return String.valueOf(result);
     }
 
-    public static int converterToInt(String num) {
-        return roman.get(num);
+    public static int converterToInt(String num) throws CalculateException {
+        int result;
+        try {
+            result = roman.get(num);
+        } catch (NullPointerException e) {
+            throw new CalculateException("Операнды должны быть в пределах от I до X");
+        }
+        return result;
     }
 
     public static String converterToRoman(String num) {
