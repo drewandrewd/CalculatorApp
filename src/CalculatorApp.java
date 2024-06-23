@@ -63,7 +63,7 @@ public class CalculatorApp {
             a = Integer.parseInt(lines[0]);
             b = Integer.parseInt(lines[2]);
             sign = lines[1];
-            if (a > 10 || b > 10) {
+            if (a > 10 || a < 1 || b > 10 || b < 1) {
                 throw new CalculateException("Операнды должны быть в пределах от 1 до 10");
             }
         } else {
