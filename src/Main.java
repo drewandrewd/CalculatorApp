@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class CalculatorApp {
+public class Main {
 
     public static int a;
     public static int b;
@@ -47,12 +47,12 @@ public class CalculatorApp {
 
     public static void main(String[] args) throws CalculateException {
         Scanner scanner = new Scanner(System.in);
-        checker(scanner.nextLine());
-        System.out.println(calculate());
+        calc(scanner.nextLine());
+        System.out.println(calculation());
     }
 
-    public static void checker(String line) throws CalculateException {
-        String[] lines = line.split(" ");
+    public static void calc(String input) throws CalculateException {
+        String[] lines = input.split(" ");
         if (lines.length != 3) {
             throw new CalculateException("Неверный формат ввода");
         } else if (!lines[1].equals("+") && !lines[1].equals("-") && !lines[1].equals("/") && !lines[1].equals("*")) {
@@ -74,7 +74,7 @@ public class CalculatorApp {
         }
     }
 
-    public static String calculate() throws CalculateException {
+    public static String calculation() throws CalculateException {
         int result;
         switch (sign) {
             case "+":
